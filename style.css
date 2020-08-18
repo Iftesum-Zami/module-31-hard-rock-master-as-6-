@@ -18,10 +18,6 @@ body{
     padding: 9px 20px;
 }
 
-.btn-privious{
-    background: rgba(255, 255, 255, 0.2);
-    color: #ffffff;
-}
 .navbar-toggler {
     border: none;
 }
@@ -36,38 +32,60 @@ body{
 }
 .single-result{
     background: rgba(255, 255, 255, 0.2);
-    border-top-left-radius: 25px;
-    border-top-right-radius: 10gitpx;
-    border-bottom:3px solid ;
-    border-image:linear-gradient(90deg,red,rgb(204, 204, 12)) ;
-    border-image-slice:30%;
-    
+    border-radius: 15px;
 }
 
-/* my extra layout */
-#songSuggestionList, #lyricsSongSuggestionList, #lyricsContent {
-    display:none;
+/* ----------------------from Js------------------------------ */
+
+.btn{
+    background-color: #28a745;
+    border: 0;
+    color: white;
+    border-radius: 1.5rem;
+    padding: 9px 20px;
 }
 
-.lyricsContent{
-    
-    text-align:center;
-    margin:0 10%;
-}
-.playLyrics{
-    margin-left:15px;
-    outline: none;
-    border:none;
-    border-radius:20px;
-    padding:0 18px;
-    font-weight:200;
-    background:rgba(144, 233, 93, 0.5);
-    color:white;
-    text-align:center;
-}
-.playLyrics a{
-    text-decoration:none;
-    color:white
+ul#songs li{
+    display: flex;
+    text-align: left;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+    padding: 15px 30px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* #28a745 */
+#artistName{
+    font-size: larger;
+    color: orange;
+}
+
+.container2{
+    text-align: center;
+    margin: 30px auto;
+    width: 600px;
+    max-width: 100%;
+}
+
+.container2 h2{
+    font-weight: 350;
+    color: #28a745;
+}
+
+.container2 p{
+    text-align: center;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+}
+
+.centered button{
+    transform: scale(1.3);
+    margin: 15px;
+}
+
+
+

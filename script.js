@@ -1,122 +1,101 @@
-let searchSong=document.getElementById('searchSong')
-let searchSongBtn=document.getElementById('searchSongBtn')
-let songSuggestionList = document.getElementById("songSuggestionList")
-let lyricsSongSuggestionList = document.getElementById("lyricsSongSuggestionList")
+const clickBtn = document.getElementById('clickBtn');
+const search = document.getElementById('search');
+const result = document.getElementById('result');
+const more = document.getElementById('more');
 
-// lyrics suggestion
-searchSong.addEventListener("keypress",event=>{
-    if(searchSong.value.length>0){
-        searchSong.style.color="black"
-    }
-    
-    let api=`https://api.lyrics.ovh/suggest/${event.target.value+event.key}`
-    
+const apiURL = 'https://api.lyrics.ovh' ;
 
-    fetch(api)
-    .then(res=>res.json())
-    .then(data=>{
-        
-        for(let i=1; i<=5; i++){
-           document.getElementById("title"+i).innerText=data.data[i].title
-           document.getElementById("artist"+i).innerText=data.data[i].artist.name
+// search by song or artist
 
+async function searchSongs(term){
+    const res = await fetch(`${apiURL}/suggest/${term}`); 
+    const data = await res.json();
 
-           let title=data.data[i].title
-            let artist=data.data[i].artist.name
-            document.getElementById("lyricsBtn"+i).addEventListener("click",(event)=>{
-               let api2=`https://api.lyrics.ovh/v1/${artist}/${title}`
-                fetch(api2)
-                .then(res=>res.json())
-                .then(data=>{
-                    let str=data.lyrics.split(" ")
-                    let [a,b,c]=str
-                    if(str.length>10){
-                        document.getElementById("lyricsContentTitle").innerText=`${a} ${b} ${c}`
-                    }else{
-                        document.getElementById("lyricsContentTitle").innerText=`${a}`
-                    }
-                    document.getElementById("textContent").innerText=data.lyrics
-                })
-                document.getElementById("lyricsContent").style.display="block"
-            })
+    showData(data);
+}
+
+// show song or artist in DOM
+function showData(data){
+    const  lyricList = data.data.slice(0, 10);
+    result.innerHTML = `
+        <ul id="songs">
+            ${lyricList.map(song => `
+                <li>
+                    <span><h3>${song.title}</h3>Album by <span id="artistName">${song.artist.name}</span></span>
+                    <button class="btn btn-success" data-artist="${song.artist.name}" data-songtitle="${song.title}">Get Lyrics</button>
+                </li>
+                ` )
+
+                .join('')
+            }
+        </ul>
+    ` ;
+
+    if (data.prev || data.next) {
+        more.innerHTML = `
+        ${
+        data.prev
+            ? `<button class="btn" onclick="getMoreSongs('${data.prev}')">Prev</button>`
+            : ''
         }
-        songSuggestionList.style.display="block"
-    })
+        ${
+        data.next
+            ? `<button class="btn" onclick="getMoreSongs('${data.next}')">Next</button>`
+            : ''
+        }
+    `;
+    } 
+    else {
+        more.innerHTML = '';
+    }
+}
+
+// Get prev and next songs
+async function getMoreSongs(url) {
+    const res = await fetch(`https://cors-anywhere.herokuapp.com/${url}`);
+    const data = await res.json();
+  
+    showData(data);
+}
+
+// get lyrics for songs
+async function getLyrics(artist, songTitle){
+    const res = await fetch(`${apiURL}/v1/${artist}/${songTitle}`);
+    const data = await res.json();
+  
+    const lyrics = data.lyrics.replace(/(\r\n|\r|\n)/g, '<br>') ;
+
+    result.innerHTML = `
+    <h2><strong>${artist}</strong> - ${songTitle}</h2>
+    <span>${lyrics}</span>
+    ` ;
+
+    more.innerHTML = '' ;
+} 
+
+// event listener
+clickBtn.addEventListener('click', e => {
+    e.preventDefault();
+    const searchTerm = search.value.trim() ;
+
+    if(!searchTerm){
+        alert("please type in a search term");
+    }
+    else{
+        searchSongs(searchTerm);
+    }
+
+    document.getElementById('extra').style.display = "none" ;
 })
 
-// all matched lyrics
+// get lyrics button click
+result.addEventListener('click', e => {
+    const clickedSong = e.target;
 
-searchSongBtn.addEventListener('click',event=>{
-    if(searchSong.value.length<1){
+    if(clickedSong.tagName === 'BUTTON'){
+        const artist = clickedSong.getAttribute('data-artist') ;
+        const songTitle = clickedSong.getAttribute('data-songtitle') ;
 
-        let searchSong = document.getElementById("searchSong")
-        searchSong.value="type a lyrics name"
-        searchSong.style.color="red"
-        document.getElementById("lyricsSongSuggestionList").style.display="none"
-
-       
-        
-    }else{
-        searchSong.style.color="black"
-    let api = `https://api.lyrics.ovh/suggest/${searchSong.value}`
-    document.getElementById("lyricsContent").style.display="none"
-    for(let i=1; i<=15;i++){
-        document.getElementById("textContent"+i).style.display="none"
-    }
-    fetch(api)
-    .then(res=>res.json())
-    .then(data=>{
-        if(data.data.length==0){
-            document.getElementById("alertUnavailable").innerHTML=`<h4 style="color:red; text-align:center">We are so sorry that <br>
-            this lyrics is not available, now</h4>`
-        }else{
-            for(let i=1; i<data.data.length; i++){
-            
-                document.getElementById("lyricsTitle"+i).innerHTML=data.data[i].title
-                document.getElementById("lyricsArtist"+i).innerHTML=data.data[i].artist.name
-                document.getElementById("play"+i).innerHTML=`<a target="_blank" href="${data.data[i].link}">Play</a>`
-                // console.log(data.data[i].link)
-
-                lyricsSongSuggestionList.style.display="block"
-                let count=1;
-                document.getElementById("getLyricsBtn"+i).addEventListener("click",event=>{
-                    
-                    let textContent=document.getElementById("textContent"+i)
-    
-                    let title=data.data[i].title
-                    let artist=data.data[i].artist.name
-                    let api2=`https://api.lyrics.ovh/v1/${artist}/${title}`
-                    fetch(api2)
-                    .then(res=>res.json())
-                    .then(data=>{
-                        // console.log(data.lyrics)
-                        if(data.lyrics==undefined){
-                            textContent.innerHTML=`<p style="color:red; text-align:center;">At this time, this lyrics is not available , Please try again later</p>`
-                                textContent.style.display="block"
-                                
-                        }else{
-                            if(count%2!==0){
-                                textContent.innerHTML=data.lyrics
-                                textContent.style.display="block"
-                                
-                                count++
-                               }else{
-                                textContent.style.display="none"
-                                count++
-                               }
-                            
-                        }
-                        
-                    })
-                    
-                })
-                
-            }
-        }
-    })
-    
-    songSuggestionList.style.display="none"
-
-}
-   
+        getLyrics(artist, songTitle) ;
+    };
 })

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Song Lyric by Hard Rock</title>
+    <title>Hard Rock Solution - Song Lyric App</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -42,267 +42,186 @@
             </div>
         </nav>
 
-        <main  class="content-area">
+        <main class="content-area">
             <div class="search-bar col-md-6 mx-auto">
                 <h1 class="text-center">Lyrics Search</h1>
                 <div class="search-box my-5">
-                    <input id="searchSong" type="text" class="form-control" placeholder="Enter your artist song name" >
-                    <button id="searchSongBtn" class="btn btn-success search-btn">Search</button>
+                    <input type="text" id="search" class="form-control" placeholder="Enter your artist song name">
+                    <button id="clickBtn" class="btn btn-success search-btn">Search</button>
                 </div>
             </div>
 
-                <!-- alert for unavailable data -->
-            <div id="alertUnavailable"></div>
-            <!-- === Simple results === -->
-            <div class="d-flex justify-content-center">
-                <div id="songSuggestionList">
-                    <p class="author lead"><strong id="title1">Purple Noon</strong> Album by <span id="artist1">Washed Out</span> <button id="lyricsBtn1" class="btn btn-success">Get Lyrics</button></p>
-                    <p class="author lead"><strong id="title2">Purple Noon</strong> Album by <span id="artist2">Washed Out</span> <button id="lyricsBtn2" class="btn btn-success">Get Lyrics</button></p>
-                    <p class="author lead"><strong id="title3">Purple Noon</strong> Album by <span id="artist3">Washed Out</span> <button id="lyricsBtn3" class="btn btn-success">Get Lyrics</button></p>
-                    <p class="author lead"><strong id="title4">Purple Noon</strong> Album by <span id="artist4">Washed Out</span> <button id="lyricsBtn4" class="btn btn-success">Get Lyrics</button></p>
-                    <p class="author lead"><strong id="title5">Purple Noon</strong> Album by <span id="artist5">Washed Out</span> <button id="lyricsBtn5" class="btn btn-success">Get Lyrics</button></p>
-                </div>
+            <div id="result" class="container2">
+                <p>Click search & your results will be displayed here</p>
             </div>
-            <!-- Single Lyrics -->
-            <div id="lyricsContent" class="single-lyrics text-center">
-                <button class="btn go-back">&lsaquo;</button>
-                <h2 id="lyricsContentTitle" class="text-success mb-4">Pentatonix - Na Na Na</h2>
-                <pre id="textContent" class="lyric text-white">
-    Wont go whistling like the wind blows,
-    Looking out my window,
-    Just to see the shine
-    Maybe you might call it crazy,
-    How Im acting lately,
 
+            <div id="more" class="container2 centered"> </div>
+
+            <div id="extra">
+                <!-- === Simple results === -->
+                <div class="d-flex justify-content-center">
+                    <div class="">
+                        <p class="author lead"><strong>Purple Noon</strong> Album by <span>Washed Out</span> <button class="btn btn-success">Get Lyrics</button></p>
+                        <p class="author lead"><strong>Purple Noon</strong> Album by <span>Washed Out</span> <button class="btn btn-success">Get Lyrics</button></p>
+                        <p class="author lead"><strong>Purple Noon</strong> Album by <span>Washed Out</span> <button class="btn btn-success">Get Lyrics</button></p>
+                        <p class="author lead"><strong>Purple Noon</strong> Album by <span>Washed Out</span> <button class="btn btn-success">Get Lyrics</button></p>
+                        <p class="author lead"><strong>Purple Noon</strong> Album by <span>Washed Out</span> <button class="btn btn-success">Get Lyrics</button></p>
+                    </div>
+                </div>
+                <!-- Single Lyrics -->
+                <div class="single-lyrics text-center">
+                    <button class="btn go-back">&lsaquo;</button>
+                    <h2 class="text-success mb-4">Pentatonix - Na Na Na</h2>
+                    <pre class="lyric text-white">
+        Wont go whistling like the wind blows,
+        Looking out my window,
+        Just to see the shine
+        Maybe you might call it crazy,
+        How Im acting lately,
     
-                </pre>
+        Skipping through the sky
+    
+    
+    
+         I see so clearly,
+    
+        Why Im always feeling free.
+    
+        So I sleep when my dreams,
+    
+        Looking like reality
+    
+    
+    
+        (Gonna feel it! Na na na...) x4
+    
+    
+    
+        Gonna feel it!
+    
+    
+    
+        I know where the greener grass grows
+    
+        Youll just have to follow
+    
+        To the other side
+    
+    
+    
+         Lets go tiptoe on a tight rope,
+    
+        Fallings only natural
+    
+        Just spread your wings and fly
+    
+    
+    
+        Youll see so clearly,
+    
+        Why Im always feeling free.
+    
+        So I sleep when our dreams
+    
+        Looking like reality
+    
+    
+    
+        (Gonna feel it! Na na na...) x4
+    
+    
+    
+        Bring it down like
+    
+        Ohh way oh
+    
+        Yeah yeah yeah yeah yeah yeah
+    
+        Break it down like
+    
+        Ohh way oh
+    
+         Yeah, yeah, yeah...
+    
+        All around like
+    
+        Ohh way oh
+    
+        Yeah, yeah, yeah...
+    
+        Sing it loud like!
+    
+        Ohh way oh
+    
+        Ah oo oo ooo
+    
+    
+    
+         Gonna feel it! (Na na na...)
+    
+         Make it sound like! (Na na na...)
+    
+        All around like! (Na na na...)
+    
+        Sing it loud like! (Na na na...)
+    
+        Gonna feel like! (Na na na...)
+                    </pre>
+                </div>
+                <!-- === Fancy results === -->
+                <div class="search-result col-md-8 mx-auto py-4">
+                    <!-- single result -->
+                    <div class="single-result row align-items-center my-3 p-3">
+                        <div class="col-md-9">
+                            <h3 class="lyrics-name">Purple Noon</h3>
+                            <p class="author lead">Album by <span>Washed Out</span></p>
+                        </div>
+                        <div class="col-md-3 text-md-right text-center">
+                            <button class="btn btn-success">Get Lyrics</button>
+                        </div>
+                    </div>
+                    <!-- ./ single result -->
+    
+                    <!-- single result -->
+                    <div class="single-result row align-items-center my-3 p-3">
+                        <div class="col-md-9">
+                            <h3 class="lyrics-name">Purple Noon</h3>
+                            <p class="author lead">Album by <span>Washed Out</span></p>
+                        </div>
+                        <div class="col-md-3 text-md-right text-center">
+                            <button class="btn btn-success">Get Lyrics</button>
+                        </div>
+                    </div>
+                    <!-- ./ single result -->
+                    <!-- single result -->
+                    <div class="single-result row align-items-center my-3 p-3">
+                        <div class="col-md-9">
+                            <h3 class="lyrics-name">Purple Noon</h3>
+                            <p class="author lead">Album by <span>Washed Out</span></p>
+                        </div>
+                        <div class="col-md-3 text-md-right text-center">
+                            <button class="btn btn-success">Get Lyrics</button>
+                        </div>
+                    </div>
+                    <!-- ./ single result -->
+                    <!-- single result -->
+                    <div class="single-result row align-items-center my-3 p-3">
+                        <div class="col-md-9">
+                            <h3 class="lyrics-name">Purple Noon</h3>
+                            <p class="author lead">Album by <span>Washed Out</span></p>
+                        </div>
+                        <div class="col-md-3 text-md-right text-center">
+                            <button class="btn btn-success">Get Lyrics</button>
+                        </div>
+                    </div>
+                    <!-- ./ single result -->
+                </div>               
             </div>
-            <!-- === Fancy results === -->
-            <div id="lyricsSongSuggestionList" class="search-result col-md-8 mx-auto py-4">
-                <!-- single result -->
-                <div class="single-result row align-items-center my-3 p-3">
-                    <div class="col-md-9">
-                        <h3 class="lyrics-name" id="lyricsTitle1">Purple Noon</h3>
-                        <p class="author lead">Album by <span id="lyricsArtist1">Washed Out</span><button id="play1" class="playLyrics"></button></p>
-                    </div>
-                    <div class="col-md-3 text-md-right text-center">
-                        <button class="btn btn-success" id="getLyricsBtn1">Get Lyrics</button>
-                    </div>
-                </div>
-                <div id="textContent1" class="lyricsContent lyric text-white">
-                    
-                </div>
-                <!-- ./ single result -->
-
-                 <!-- single result -->
-                 <div class="contentBoxStyle single-result row align-items-center my-3 p-3">
-                    <div class="col-md-9">
-                        <h3 class="lyrics-name" id="lyricsTitle2">Purple Noon</h3>
-                        <p class="author lead">Album by <span id="lyricsArtist2">Washed Out</span>
-                            <button id="play2" class="playLyrics"></button>
-                        </p>
-                    </div>
-                    <div class="col-md-3 text-md-right text-center">
-                        <button class="btn btn-success"id="getLyricsBtn2">Get Lyrics</button>
-                    </div>
-                </div>
-                <div id="textContent2" class="lyricsContent lyric text-white">
-                    
-                </div>
-                <!-- ./ single result -->
-                 <!-- single result -->
-                 <div class="single-result row align-items-center my-3 p-3">
-                    <div class="col-md-9">
-                        <h3 class="lyrics-name" id="lyricsTitle3">Purple Noon</h3>
-                        <p class="author lead">Album by <span id="lyricsArtist3">Washed Out</span>
-                            <button id="play3" class="playLyrics"></button>
-                        </p>
-                    </div>
-                    <div class="col-md-3 text-md-right text-center">
-                        <button class="btn btn-success"id="getLyricsBtn3">Get Lyrics</button>
-                    </div>
-                </div>
-                <div id="textContent3" class="lyricsContent lyric text-white"> </div>
-                <!-- ./ single result -->
-                <!-- single result -->
-                <div class="single-result row align-items-center my-3 p-3">
-                    <div class="col-md-9">
-                        <h3 class="lyrics-name" id="lyricsTitle4">Purple Noon</h3>
-                        <p class="author lead">Album by <span id="lyricsArtist4">Washed Out</span>
-                            <button id="play4" class="playLyrics"></button>
-                        </p>
-                    </div>
-                    <div class="col-md-3 text-md-right text-center">
-                        <button class="btn btn-success"id="getLyricsBtn4">Get Lyrics</button>
-                    </div>
-                </div>
-                <div id="textContent4" class="lyricsContent lyric text-white"> </div>
-                <!-- ./ single result -->
-                <!-- single result -->
-                <div class="single-result row align-items-center my-3 p-3">
-                    <div class="col-md-9">
-                        <h3 class="lyrics-name" id="lyricsTitle5">Purple Noon</h3>
-                        <p class="author lead">Album by <span id="lyricsArtist5">Washed Out</span>
-                            <button id="play5" class="playLyrics"></button>
-                        </p>
-                    </div>
-                    <div class="col-md-3 text-md-right text-center">
-                        <button class="btn btn-success"id="getLyricsBtn5">Get Lyrics</button>
-                    </div>
-                </div>
-                <div id="textContent5" class="lyricsContent lyric text-white"> </div>
-                <!-- ./ single result -->
-                <!-- single result -->
-                <div class="single-result row align-items-center my-3 p-3">
-                    <div class="col-md-9">
-                        <h3 class="lyrics-name" id="lyricsTitle6">Purple Noon</h3>
-                        <p class="author lead">Album by <span id="lyricsArtist6">Washed Out</span>
-                            <button id="play6" class="playLyrics"></button>
-                        </p>
-                    </div>
-                    <div class="col-md-3 text-md-right text-center">
-                        <button class="btn btn-success"id="getLyricsBtn6">Get Lyrics</button>
-                    </div>
-                </div>
-                <div id="textContent6" class="lyricsContent lyric text-white"> </div>
-                <!-- ./ single result -->
-                <!-- single result -->
-                <div class="single-result row align-items-center my-3 p-3">
-                    <div class="col-md-9">
-                        <h3 class="lyrics-name" id="lyricsTitle7">Purple Noon</h3>
-                        <p class="author lead">Album by <span id="lyricsArtist7">Washed Out</span>
-                            <button id="play7" class="playLyrics"></button>
-                        </p>
-                    </div>
-                    <div class="col-md-3 text-md-right text-center">
-                        <button class="btn btn-success"id="getLyricsBtn7">Get Lyrics</button>
-                    </div>
-                </div>
-                <div id="textContent7" class="lyricsContent lyric text-white"> </div>
-                <!-- ./ single result -->
-                <!-- single result -->
-                <div class="single-result row align-items-center my-3 p-3">
-                    <div class="col-md-9">
-                        <h3 class="lyrics-name" id="lyricsTitle8">Purple Noon</h3>
-                        <p class="author lead">Album by <span id="lyricsArtist8">Washed Out</span>
-                            <button id="play8" class="playLyrics"></button>
-                        </p>
-                    </div>
-                    <div class="col-md-3 text-md-right text-center">
-                        <button class="btn btn-success"id="getLyricsBtn8">Get Lyrics</button>
-                    </div>
-                </div>
-                <div id="textContent8" class="lyricsContent lyric text-white"> </div>
-                <!-- ./ single result -->
-                <!-- single result -->
-                <div class="single-result row align-items-center my-3 p-3">
-                    <div class="col-md-9">
-                        <h3 class="lyrics-name" id="lyricsTitle9">Purple Noon</h3>
-                        <p class="author lead">Album by <span id="lyricsArtist9">Washed Out</span>
-                            <button id="play9" class="playLyrics"></button>
-                        </p>
-                    </div>
-                    <div class="col-md-3 text-md-right text-center">
-                        <button class="btn btn-success"id="getLyricsBtn9">Get Lyrics</button>
-                    </div>
-                </div>
-                <div id="textContent9" class="lyricsContent lyric text-white"> </div>
-                <!-- ./ single result -->
-                <!-- single result -->
-                <div class="single-result row align-items-center my-3 p-3">
-                    <div class="col-md-9">
-                        <h3 class="lyrics-name" id="lyricsTitle10">Purple Noon</h3>
-                        <p class="author lead">Album by <span id="lyricsArtist10">Washed Out</span>
-                            <button id="play10" class="playLyrics"></button>
-                        </p>
-                    </div>
-                    <div class="col-md-3 text-md-right text-center">
-                        <button class="btn btn-success"id="getLyricsBtn10">Get Lyrics</button>
-                    </div>
-                </div>
-                <div id="textContent10" class=lyricsContent "lyric text-white"> </div>
-                <!-- ./ single result -->
-                <!-- single result -->
-                <div class="single-result row align-items-center my-3 p-3">
-                    <div class="col-md-9">
-                        <h3 class="lyrics-name" id="lyricsTitle11">Purple Noon</h3>
-                        <p class="author lead">Album by <span id="lyricsArtist11">Washed Out</span>
-                            <button id="play11" class="playLyrics"></button>
-                        </p>
-                    </div>
-                    <div class="col-md-3 text-md-right text-center">
-                        <button class="btn btn-success"id="getLyricsBtn11">Get Lyrics</button>
-                    </div>
-                </div>
-                <div id="textContent11" class=lyricsContent "lyric text-white"> </div>
-                <!-- ./ single result -->
-                <!-- single result -->
-                <div class="single-result row align-items-center my-3 p-3">
-                    <div class="col-md-9">
-                        <h3 class="lyrics-name" id="lyricsTitle12">Purple Noon</h3>
-                        <p class="author lead">Album by <span id="lyricsArtist12">Washed Out</span>
-                        
-                            <button id="play12" class="playLyrics"></button>
-                        </p>
-                    </div>
-                    <div class="col-md-3 text-md-right text-center">
-                        <button class="btn btn-success"id="getLyricsBtn12">Get Lyrics</button>
-                    </div>
-                </div>
-                <div id="textContent12" class=lyricsContent "lyric text-white"> </div>
-                <!-- ./ single result -->
-                <!-- single result -->
-                <div class="single-result row align-items-center my-3 p-3">
-                    <div class="col-md-9">
-                        <h3 class="lyrics-name" id="lyricsTitle13">Purple Noon</h3>
-                        <p class="author lead">Album by <span id="lyricsArtist13">Washed Out</span>
-                            <button id="play13" class="playLyrics"></button>
-                        </p>
-                    </div>
-                    <div class="col-md-3 text-md-right text-center">
-                        <button class="btn btn-success"id="getLyricsBtn13">Get Lyrics</button>
-                    </div>
-                </div>
-                <div id="textContent13" class=lyricsContent "lyric text-white"> </div>
-                <!-- ./ single result -->
-                <!-- single result -->
-                <div class="single-result row align-items-center my-3 p-3">
-                    <div class="col-md-9">
-                        <h3 class="lyrics-name" id="lyricsTitle14">Purple Noon</h3>
-                        <p class="author lead">Album by <span id="lyricsArtist14">Washed Out</span>
-                            <button id="play14" class="playLyrics"></button>
-                        </p>
-                    </div>
-                    <div class="col-md-3 text-md-right text-center">
-                        <button class="btn btn-success"id="getLyricsBtn14">Get Lyrics</button>
-                    </div>
-                </div>
-                <div id="textContent14" class=lyricsContent "lyric text-white"> </div>
-                <!-- ./ single result -->
-                <!-- single result -->
-                <div style="display:none" class="single-result row align-items-center my-3 p-3">
-                    <div class="col-md-9">
-                        <h3 class="lyrics-name" id="lyricsTitle15">Purple Noon</h3>
-                        <p class="author lead">Album by <span id="lyricsArtist15">Washed Out</span>
-                            <button id="play15" class="playLyrics"></button>
-                        </p>
-                    </div>
-                    <div class="col-md-3 text-md-right text-center">
-                        <button class="btn btn-success"id="getLyricsBtn15">Get Lyrics</button>
-                    </div>
-                </div>
-                <div id="textContent15" class=lyricsContent "lyric text-white"> </div>
-                <!-- ./ single result -->
-
-
-            </div>
-
-
 
         </main>
     </div>
     <!-- Optional JavaScript -->
-    <script src="./script.js"></script>
+    <script src="script.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
