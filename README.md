@@ -1,5 +1,3 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 # Hard Rock Lyrics
 
 [Visit Website](https://iftesum-zami.github.io/assignment-6/)
@@ -15,6 +13,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * Vanilla JS
 * HTML
 * CSS
+* Bootstrap
 * Rest API
 ---
 [My Resume](https://drive.google.com/file/d/1JjqWGyt79JNy1k2BjHQAX2Wjm-Nobk4q/view?usp=sharing)
